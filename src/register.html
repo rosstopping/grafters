@@ -1,0 +1,163 @@
+---
+layout: default
+title: Register Now | Grafters Audition Preparation
+---
+<div class="-mt-32 relative w-full bg-black pt-52 pb-24">
+    <div class="relative z-10 text-center text-white text-center mx-auto max-w-xl">
+        <h1 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">Register Now</h1>
+        <h2 class="uppercase max-w-sm mx-auto font-heading font-light tracking-widest text-gray-100">Complete the form below to register</h2>
+    </div>
+    <img src="https://images.unsplash.com/photo-1511715282680-fbf93a50e721?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="w-full h-full absolute inset-0 object-cover object-top opacity-75">
+</div>
+<div x-data="data()" x-init="init()">
+    <div class="container mx-auto px-6 py-12 md:py-24">
+        <div class="space-y-6 max-w-lg mx-auto">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Full name</label>
+                <div class="mt-1">
+                    <input x-model="data.name" type="text" name="name" id="name" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="" aria-describedby="name-description">
+                </div>
+                <p class="mt-2 text-xs text-gray-500" id="name-description">(Parent/Guardian/Fee Payer)</p>
+            </div>
+            <div>
+                <label for="student" class="block text-sm font-medium text-gray-700">Student name</label>
+                <div class="mt-1">
+                    <input x-model="data.student" type="text" name="student" id="student" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="" aria-describedby="student-description">
+                </div>
+                <!-- <p class="mt-2 text-sm text-gray-500" id="name-description">(Parent/Guardian/Fee Payer)</p> -->
+            </div>
+            <div>
+                <label for="dob" class="block text-sm font-medium text-gray-700">Student date of birth (dd/mm/yyyy)</label>
+                <div class="mt-1">
+                    <input x-model="data.dob" type="date" name="dob" id="dob" class="shadow-sm focus:ring-brand focus:border-brand w-full sm:text-sm border-gray-300 rounded-md" placeholder="" aria-describedby="dob-description">
+                </div>
+                <!-- <p class="mt-2 text-sm text-gray-500" id="name-description">(Parent/Guardian/Fee Payer)</p> -->
+            </div>
+            <div>
+                <label for="address" class="block text-sm font-medium text-gray-700">Postage Address</label>
+                <div class="mt-1">
+                    <textarea x-model="data.address" type="text" name="address" id="address" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="" aria-describedby="address-description"></textarea>
+                </div>
+                <!-- <p class="mt-2 text-sm text-gray-500" id="name-description">(Parent/Guardian/Fee Payer)</p> -->
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                <div class="mt-1">
+                    <input x-model="data.email" type="email" name="email" id="email" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                </div>
+            </div>
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone number</label>
+                <div class="mt-1">
+                    <input x-model="data.phone" type="text" name="phone" id="phone" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                </div>
+            </div>
+            <div>
+            <label class="block text-sm font-medium text-gray-700">How did you hear about us?</label>
+                <div class="mt-1">
+                    <select x-model="data.source" name="source" required class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md">
+                        <option value="">Please select</option>
+                        <option>Facebook advertisement</option>
+                        <option>Facebook group</option>
+                        <option>Instagram</option>
+                        <option>Newspaper article</option>
+                        <option>Website</option>
+                        <option>Word of mouth</option>
+                        <option>Other</option>
+                    </select>
+                    <template x-if="data.source === 'Other'">
+                        <input x-model="data.source_other" name="source_other" type="text" placeholder="Please tell us more..." required="" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md mt-2">
+                    </template>
+                    <template x-if="data.source === 'Facebook group'">
+                        <input x-model="data.source_facebook_group" name="facebook_group" type="text" placeholder="Please tell us which facebook group..." class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md mt-2">
+                    </template>
+                </div>
+            </div>
+            <fieldset>
+                <legend class="text-base font-medium text-gray-900">
+                    Emergency contact information
+                </legend>
+                <div class="space-y-6 mt-4">
+                    <div>
+                        <label for="emergency_name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <div class="mt-1">
+                            <input x-model="data.emergency_name" type="text" name="emergency_name" id="emergency_name" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="emergency_relationship" class="block text-sm font-medium text-gray-700">Relationship</label>
+                        <div class="mt-1">
+                            <input x-model="data.emergency_relationship" type="text" name="emergency_relationship" id="emergency_relationship" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="emergency_number" class="block text-sm font-medium text-gray-700">Contact Number</label>
+                        <div class="mt-1">
+                            <input x-model="data.emergency_number" type="text" name="emergency_number" id="emergency_number" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="">
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500" id="name-description">Emergency contact number needs to remain available whilst the student is participating in Encore Activity</p>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="text-base font-medium text-gray-900">
+                    Medical / Injury disclosure
+                </legend>
+                <div class="space-y-6 mt-4">
+                    <div>
+                        <label for="medical_information" class="block text-sm font-medium text-gray-700">Please detail any medical information we need to be aware of below (including allergies)</label>
+                        <div class="mt-1">
+                            <textarea x-model="data.medical_information" type="text" name="medical_information" id="medical_information" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500" id="name-description">If you are not sure your child should be participating in Encore activity please first consult your GP. Any medication left on the premises must be clearly labelled and the student must be able to administer it themselves unless Encore has agreed otherwise in writing. </p>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="flex justify-end">
+                <button x-on:click="next" class="inline-flex items-center px-4 py-3 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-black hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.18.3/collect.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+const data = () => ({
+    data: {
+        name: '',
+        student: '',
+        address: '',
+        dob: '',
+        email: '',
+        phone: '',
+        source: '',
+        source_other: '',
+        source_facebook_group: '',
+        emergency_name: '',
+        emergency_relationship: '',
+        emergency_number: '',
+        medical_information: '',
+    },
+    init() {
+        if (localStorage.getItem('data')) this.data = JSON.parse(localStorage.getItem('data'));
+        const urlParams = new URLSearchParams(window.location.search);
+    },
+    next() {
+        /**
+         * Check all fields have a value
+         **/
+        if (!this.data.name || !this.data.student || !this.data.address || !this.data.dob || !this.data.email || !this.data.phone) {
+            return alert('Please complete all the fields.');
+        }
+
+        // store data for payment page
+        localStorage.setItem('data', JSON.stringify(this.data));
+
+        // redirect to payment page
+        location.href = '/pay/';
+    }
+});
+</script>
