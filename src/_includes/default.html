@@ -24,8 +24,8 @@ title: learnr.dev
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body x-data="menu()" x-init="init()" x-bind:class="menu ? 'pt-20' : ''" class="font-sans antialiased flex h-full flex-col">
-    <div x-bind:class="menu ? 'fixed bg-black h-20' : 'relative h-24'" class="z-20 top-0 left-0 w-full">
+<body x-data="menu()" x-init="init()" x-bind:class="menu ? 'md:pt-20' : ''" class="font-sans antialiased flex h-full flex-col">
+    <div x-bind:class="menu ? 'md:fixed md:bg-black md:h-20 h-24' : 'relative h-24'" class="z-20 top-0 left-0 w-full">
         <div class="h-full container mx-auto flex items-center justify-between px-6">
             <a href="/" class="text-xl font-extrabold italic tracking-tighter text-white uppercase">Grafters</a>
             <div class="text-white text-lg fixed bottom-0 left-0 lg:relative p-6 lg:p-0 w-full lg:w-auto max-w-lg">
