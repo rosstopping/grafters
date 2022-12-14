@@ -34,6 +34,7 @@ description:
             <div class="text-lg prose">
                 <p>Classes specifically tailored to take your audition execution to the next level for those that are ready to graft like never before.</p>
                 <p>Lead by industry and audition experts these classes are designed to equip those considering auditioning for Drama School, with the tools and skills to confidently showcase their abilities in what can be a highly pressurised environment.</p>
+                <a href="/register/" class="mt-6 inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Register Now</a>
             </div>
         </div>
     </div>
@@ -50,10 +51,62 @@ description:
 </div>
 
 
-<div class="text-lg prose max-w-lg mx-auto text-center px-6">
-    <p>Classes specifically tailored to take your audition execution to the next level for those that are ready to graft like never before.</p>
-    <p>Lead by industry and audition experts these classes are designed to equip those considering auditioning for Drama School, with the tools and skills to confidently showcase their abilities in what can be a highly pressurised environment.</p>
-    <a href="/register/" class="mt-8 inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Register Now</a>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.x/dist/css/glide.core.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.x"></script>
+<div class="text-center px-6">
+    <h2 class="text-5xl mb-6 font-bold uppercase italic">Student successes</h2>
+</div>
+<div
+    x-data="{
+        images: [
+            '/images/logos/1616492948-ppa logo.png',
+            '/images/logos/ArtsEd_RGB-02-ORANGE.png',
+            '/images/logos/Bird_Logo_Square.jpeg',
+            '/images/logos/download.jpeg',
+            '/images/logos/GSA_Black.png',
+            '/images/logos/ItaliaContiBlack.png',
+            '/images/logos/lc_white.png',
+            '/images/logos/logo-holding.png',
+            '/images/logos/Mountview-Logo.png',
+            '/images/logos/PC_RGB_Black_web.png',
+            '/images/logos/royal scottish .png',
+            '/images/logos/rwcmd-logo.png'
+        ],
+        init() {
+            this.$nextTick(() => {
+                new Glide(this.$refs.glide, {
+                    type: 'carousel',
+                    gap: 20,
+                    autoplay: 2000,
+                    perView: 7,
+                    800: {
+                        perView: 2,
+                        gap: 10,
+                    },
+                }).mount()
+            });
+        },
+    }"
+>
+    <div x-ref="glide" class="glide block relative px-12 mt-6 max-w-6xl mx-auto">
+        <div class="glide__track" data-glide-el="track">
+            <div class="glide__slides">
+                <template x-for="image in images">
+                    <div class="glide__slide">
+                        <div
+                            class="px-3 py-1"
+                            x-bind:class="[
+                                '/images/logos/lc_white.png',
+                                '/images/logos/logo-holding.png',
+                                '/images/logos/royal scottish .png'
+                            ].includes(image) ? 'bg-black' : ''">
+                            <img class="h-24 w-auto object-contain" x-bind:src="image">
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="who-we-are" class="relative w-full bg-black py-56 my-12 lg:my-24">
