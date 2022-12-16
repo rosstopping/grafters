@@ -1,0 +1,243 @@
+---
+layout: default
+title: Register Now | Encore Musical Theatre
+---
+<div x-data="data()" x-init="init()">
+    <template x-if="loading">
+        <div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+            <svg class="w-8 h-8 text-white relative animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+        </div>
+    </template>
+    <!-- <div class="relative flex justify-center px-6 md:px-12">
+    <div class="w-full h-1/2 bg-black absolute inset-0"></div>
+    <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Contact Encore Musical Theatre" class="w-full h-64 md:h-96 object-cover relative max-w-6xl">
+</div> -->
+   
+    <div class="-mt-32 relative w-full bg-black pt-52 pb-24">
+        <div class="relative z-10 text-center text-white text-center mx-auto max-w-xl">
+            <h1 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">Register Now</h1>
+            <h2 class="uppercase max-w-sm mx-auto font-heading font-light tracking-widest text-gray-100">Complete the form below to register</h2>
+        </div>
+        <img src="https://images.unsplash.com/photo-1511715282680-fbf93a50e721?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="w-full h-full absolute inset-0 object-cover object-top opacity-75">
+    </div>
+    <div class="container mx-auto px-6 pt-12 mb-24">
+        <div class="space-y-6 max-w-lg mx-auto">
+            <fieldset>
+                <legend class="text-base font-medium text-gray-900">
+                    Payment options
+                </legend>
+                <div class="mt-4">
+                    <label for="school" class="block text-sm font-medium text-gray-700">School</label>
+                    <div class="mt-1">
+                        <select x-model="data.school" name="school" id="school" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md">
+                            <!-- <option value="beginners">Beginners (4 - 6)</option> -->
+                            <option value="main">Main School (6 - 21)</option>
+                        </select>
+                    </div>
+                </div>
+                <template x-if="data.trial === true">
+                    <div>
+                        <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+                            <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                                <!-- <input x-model="payment_option" type="radio" name="payment_option" value="full" class="sr-only" aria-labelledby="project-type-0-label" aria-describedby="project-type-0-description-0 project-type-0-description-1"> -->
+                                <div class="flex-1 flex">
+                                    <div class="flex flex-col">
+                                        <span id="project-type-0-label" class="block text-sm font-medium text-gray-900">
+                                            Pay in full (TRIAL)
+                                        </span>
+                                        <span id="project-type-0-description-0" class="mt-1 flex items-center text-sm text-gray-500" x-text="data.school === 'main' ? '£40' : '£25'"></span>
+                                    </div>
+                                </div>
+                                <!--
+                Not Checked: "invisible"
+
+                Heroicon name: solid/check-circle
+              -->
+                                <svg class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <!--
+                Active: "border", Not Active: "border-2"
+                Checked: "border-brand", Not Checked: "border-transparent"
+              -->
+                                <div class="absolute -inset-px rounded-lg border-2 pointer-events-none border border-brand" aria-hidden="true"></div>
+                            </label>
+                        </div>
+                    </div>
+                </template>
+                <template x-if="data.trial != true">
+                    <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+                        <!--
+          Checked: "border-transparent", Not Checked: "border-gray-300"
+          Active: "ring-2 ring-brand"
+        -->
+                        <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                            <input x-model="payment_option" type="radio" name="payment_option" value="full" class="sr-only" aria-labelledby="project-type-0-label" aria-describedby="project-type-0-description-0 project-type-0-description-1">
+                            <div class="flex-1 flex">
+                                <div class="flex flex-col">
+                                    <span id="project-type-0-label" class="block text-sm font-medium text-gray-900">
+                                        Pay in full
+                                    </span>
+                                    <span id="project-type-0-description-0" class="mt-1 flex items-center text-sm text-gray-500" x-text="data.school === 'main' ? '£240' : '£112.50 (10% off)'"></span>
+                                </div>
+                            </div>
+                            <!--
+            Not Checked: "invisible"
+
+            Heroicon name: solid/check-circle
+          -->
+                            <svg x-bind:class="payment_option != 'full' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <!--
+            Active: "border", Not Active: "border-2"
+            Checked: "border-brand", Not Checked: "border-transparent"
+          -->
+                            <div x-bind:class="payment_option != 'full' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                        </label>
+                        <!--
+          Checked: "border-transparent", Not Checked: "border-gray-300"
+          Active: "ring-2 ring-brand"
+        -->
+                        <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                            <input x-model="payment_option" type="radio" name="payment_option" value="later" class="sr-only" aria-labelledby="project-type-2-label" aria-describedby="project-type-2-description-0 project-type-2-description-1">
+                            <div class="flex-1 flex">
+                                <div class="flex flex-col">
+                                    <span id="project-type-2-label" class="block text-sm font-medium text-gray-900">
+                                        Instalments
+                                    </span>
+                                    <span id="project-type-2-description-0" class="mt-1 flex items-center text-sm text-gray-500" x-text="data.school === 'main' ? '£80 x 3 monthly payments' : '£41.66 x 3 monthly payments'"></span>
+                                </div>
+                            </div>
+                            <!--
+            Not Checked: "invisible"
+
+            Heroicon name: solid/check-circle
+          -->
+                            <svg x-bind:class="payment_option != 'later' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <!--
+            Active: "border", Not Active: "border-2"
+            Checked: "border-brand", Not Checked: "border-transparent"
+          -->
+                            <div x-bind:class="payment_option != 'later' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                        </label>
+
+                        <!-- <template x-if="data.school === 'main'">
+                            <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                                <input x-model="payment_option" type="radio" name="payment_option" value="halfterm" class="sr-only" aria-labelledby="project-type-2-label" aria-describedby="project-type-2-description-0 project-type-2-description-1">
+                                <div class="flex-1 flex">
+                                    <div class="flex flex-col">
+                                        <span id="project-type-2-label" class="block text-sm font-medium text-gray-900">
+                                            Half a term
+                                        </span>
+                                        <span id="project-type-2-description-0" class="mt-1 flex items-center text-sm text-gray-500">£120</span>
+                                    </div>
+                                </div>
+                                <svg x-bind:class="payment_option != 'halfterm' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <div x-bind:class="payment_option != 'halfterm' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                            </label>
+                            
+                        </template> -->
+                    </div>
+                </template>
+            </fieldset>
+            <div class="relative flex items-start">
+                <div class="flex items-center h-5">
+                    <input x-model="terms" id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
+                </div>
+                <div class="ml-2 text-sm">
+                    <!-- <label for="comments" class="font-medium text-gray-700">New comments</label> -->
+                    <span id="comments-description" class="text-gray-500">Please tick to confirm you have read and agree to the <a href="/images/Encore Terms & Conditions.pdf" class="underline" target="_blank">booking terms &amp; conditions</a>.</span>
+                </div>
+            </div>
+            <div class="flex justify-end items-center">
+                <a href="/register/" class="text-xs text-gray-500 mr-4">Cancel</a>
+                <button x-on:click="pay" x-bind:class="!terms ? 'cursor-not-allowed' : ''" class="inline-flex items-center px-4 py-3 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-black hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" x-bind:disabled="!terms">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                    </svg> Go to payment </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/collect.js/4.18.3/collect.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+const data = () => ({
+    loading: false,
+    payment_option: 'full',
+    terms: false,
+    data: JSON.parse(localStorage.getItem('data')),
+    init() {
+        if (!this.data) location.href = '/register/';
+    },
+    pay() {
+        /**
+         * Check all fields have a value
+         **/
+        if (!this.data.name || !this.data.student || !this.data.address || !this.data.dob || !this.data.email || !this.data.phone) {
+            alert('Sorry there was a problem. Please try again.');
+            location.href = '/register/';
+        }
+
+        // check terms have been ticked
+        if (!this.terms) {
+            return alert('Please confirm you have read the booking terms & conditions.');
+        }
+
+        // loading
+        this.loading = true;
+
+        let payment_url = '';
+        if (this.data.school === 'beginners') {
+            if (this.data.trial === true) {
+                payment_url = '/.netlify/functions/beginners-trial';
+            }
+            else {
+                payment_url = this.payment_option === 'full' ? '/.netlify/functions/beginners-now' : '/.netlify/functions/beginners-later';
+            }
+        }
+        if (this.data.school === 'main') {
+            if (this.data.trial === true) {
+                payment_url = '/.netlify/functions/mainschool-trial';
+            }
+            else {
+                if (this.payment_option === 'full') {
+                    payment_url = '/.netlify/functions/mainschool-now';
+                }
+                else if (this.payment_option === 'halfterm') {
+                    payment_url = '/.netlify/functions/mainschool-halfterm-now';
+                }
+                else {
+                    payment_url = '/.netlify/functions/mainschool-later';
+                }
+            }
+        }
+
+        axios.get(payment_url, {
+                params: this.data
+            })
+            .then(function(response) {
+                const stripe = Stripe(response.data.stripe_key);
+                const { error } = stripe.redirectToCheckout({
+                    sessionId: response.data.sessionId,
+                });
+            })
+            .catch(function(error) {
+                alert(error);
+            })
+            .then(() => {
+                this.loading = false;
+                localStorage.removeItem('data');
+            });
+    }
+});
+</script>
