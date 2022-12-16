@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="-mt-32 relative w-full bg-black pt-52 pb-24">
+    <div class="relative z-10 text-center text-white text-center mx-auto max-w-xl">
+        <h1 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">Contact Us</h1>
+        <!-- <h2 class="uppercase max-w-sm mx-auto font-heading font-light tracking-widest text-gray-100">Complete the form below to apply</h2> -->
+    </div>
+    <img src="/images/Grafters-083.jpg" class="w-full h-full absolute inset-0 object-cover object-top opacity-75">
+</div>
+<div class="prose max-w-4xl py-12 mx-auto px-6">
+    <p>For more information or to get in touch feel free to contact us via the email form below.</p>
+</div>
+<div class="container mx-auto px-6 mb-12">
+    <div class="grid grid-cols-1 max-w-xl mx-auto">
+        <div>
+            <form netlify name="contact">
+                <div>
+                    <label class="block text-base tracking-tight text-gray-600">Name</label>
+                    <input name="name" type="text" placeholder="Name" required="" class="mt-2 w-full border-none text-sm p-4 bg-gray-100 text-gray-700">
+                </div>
+                <div class="mt-6">
+                    <label class="block text-base tracking-tight text-gray-600">Email address</label>
+                    <input name="email" type="email" placeholder="your@email.com" required="" class="mt-2 w-full border-none text-sm p-4 bg-gray-100 text-gray-700">
+                </div>
+                <div class="mt-6">
+                    <label class="block text-base tracking-tight text-gray-600">Subject</label>
+                    <input name="subject" type="text" placeholder="Subject" required="" class="mt-2 w-full border-none text-sm p-4 bg-gray-100 text-gray-700">
+                </div>
+                <div class="mt-6">
+                    <label class="block text-base tracking-tight text-gray-600">Message</label>
+                    <textarea name="message" placeholder="Your message" required="" class="mt-2 w-full border-none text-sm p-4 bg-gray-100 text-gray-700"></textarea>
+                </div>
+                <button class="inline-block bg-black text-white uppercase text-sm tracking-widest font-heading px-8 py-4 mt-6">Send message</button>
+            </form>
+        </div>
+    </div>
+</div>
