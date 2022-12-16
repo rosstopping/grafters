@@ -7,7 +7,7 @@ const { DateTime } = require("luxon");
 module.exports = (config) => {
   config.addPassthroughCopy("src/images");
   config.addPassthroughCopy({ "src/static": "/" });
-  config.addPassthroughCopy("src/admin/config.yml");
+  // config.addPassthroughCopy("src/admin/config.yml");
   config.addFilter("markdown", (data) => markdownItRenderer.render(data));
   config.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
