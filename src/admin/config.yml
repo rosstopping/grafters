@@ -1,0 +1,79 @@
+backend:
+  # Use netlify identity as backend
+  name: git-gateway
+  branch: main
+  ### enable below lines for github integration ###
+  # name: github
+  # repo: rosstopping/northernprepsquad
+media_folder: "src/images"
+public_folder: "/images"
+
+# Please run "npx netlify-cms-proxy-server" for local backend
+local_backend: true
+# publish_mode: editorial_workflow
+collections:
+  # - label: "Pages"
+  #   name: "page"
+  #   folder: "src/pages"
+  #   create: true
+  #   editor:
+  #     preview: true
+  #   fields:
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - { label: "Description", name: "description", widget: "string", required: false }
+  #     - { label: "Body", name: "body", widget: "markdown" }
+  - label: "Content"
+    name: "content"
+    editor:
+      preview: false
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/_data/home.yaml"
+        fields:
+          - { label: Logos Title, name: logos_title, widget: string }
+          - label: Logos
+            name: logos
+            widget: list
+            allow_add: true
+            collapsed: true
+            fields:
+              - { label: Image, name: image, widget: image }
+          - { label: About Title, name: about_title, widget: string }
+          - { label: About Description, name: about_description, widget: markdown }
+          - { label: About Image One, name: about_image_one, widget: image }
+          - { label: About Image Two, name: about_image_two, widget: image }
+          - { label: Video, name: video, widget: string }
+          - { label: Instagram URL, name: instagram_url, widget: string }
+          - { label: Instagram Username, name: instagram_username, widget: string }
+          - { label: Facebook URL, name: facebook_url, widget: string }
+          - { label: Fcaebook Username, name: facebook_username, widget: string }
+          - { label: Team Title, name: team_title, widget: string }
+          - { label: Team Image, name: team_image, widget: image }
+          - label: Staff
+            name: staff
+            widget: list
+            allow_add: true
+            collapsed: true
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: About, name: about, widget: markdown }
+              - { label: Website Link, name: website_link, widget: string }
+              - { label: Website Name, name: website_name, widget: string }
+          - { label: Classes Title, name: classes_title, widget: string }
+          - { label: Classes Image, name: classes_image, widget: image }
+          - { label: Classes Description, name: classes_description, widget: markdown }
+          - { label: Classes Small Print, name: classes_smallprint, widget: string }
+          - { label: Apply Title, name: apply_title, widget: string }
+          - { label: Apply Image, name: apply_image, widget: image }
+          - { label: Apply Description, name: apply_description, widget: markdown }
+      # - label: "Footer"
+      #   name: "footer"
+      #   file: "src/_data/footer.yaml"
+      #   fields:
+      #     - { label: Instagram, name: instagram, widget: string, required: false }
+      #     - { label: Facebook, name: facebook, widget: string, required: false }
+      #     - { label: Twitter, name: twitter, widget: string, required: false }
+      #     - { label: Pinterest, name: pinterest, widget: string, required: false }
+      #     - { label: Email Subscribe, name: email, widget: boolean, required: false }

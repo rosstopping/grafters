@@ -6,6 +6,7 @@ const { DateTime } = require("luxon");
 
 module.exports = (config) => {
   config.addPassthroughCopy("src/images");
+  config.addPassthroughCopy("src/admin/config.yml");
   config.addPassthroughCopy({ "src/static": "/" });
   // config.addPassthroughCopy("src/admin/config.yml");
   config.addFilter("markdown", (data) => markdownItRenderer.render(data));

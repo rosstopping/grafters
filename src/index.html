@@ -30,32 +30,19 @@ description:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.x/dist/css/glide.core.min.css">
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide@3.5.x"></script>
 <div class="text-center px-6 mt-24">
-    <h2 class="text-5xl mb-6 font-bold uppercase italic">Student successes</h2>
+    <h2 class="text-5xl mb-6 font-bold uppercase italic">{{ home.logos_title }}</h2>
 </div>
 <div
     x-data="{
-        images: [
-            '/images/logos/1616492948-ppa logo.png',
-            '/images/logos/ArtsEd_RGB-02-ORANGE.png',
-            '/images/logos/Bird_Logo_Square.jpeg',
-            '/images/logos/download.jpeg',
-            '/images/logos/GSA_Black.png',
-            '/images/logos/ItaliaContiBlack.png',
-            '/images/logos/lc_white.png',
-            '/images/logos/logo-holding.png',
-            '/images/logos/Mountview-Logo.png',
-            '/images/logos/PC_RGB_Black_web.png',
-            '/images/logos/royal scottish .png',
-            '/images/logos/rwcmd-logo.png'
-        ],
+        images: {{ home.logos | dump }},
         init() {
             this.$nextTick(() => {
                 new Glide(this.$refs.glide, {
-                    type: 'carousel',
+                    type: 'loop',
                     gap: 20,
-                    autoplay: 1000,
+                    autoplay: 5000,
                     perView: 7,
-  breakpoints: {
+                    breakpoints: {
                     640: {
                         perView: 2,
                         gap: 10,
@@ -68,7 +55,7 @@ description:
     <div x-ref="glide" class="glide block relative px-12 mt-6 max-w-6xl mx-auto">
         <div class="glide__track" data-glide-el="track">
             <div class="glide__slides">
-                <template x-for="image in images">
+                <template x-for="logo in images">
                     <div class="glide__slide">
                         <div
                             class="px-3 py-1"
@@ -76,8 +63,8 @@ description:
                                 '/images/logos/lc_white.png',
                                 '/images/logos/logo-holding.png',
                                 '/images/logos/royal scottish .png'
-                            ].includes(image) ? 'bg-black' : ''">
-                            <img class="h-24 w-auto object-contain" x-bind:src="image">
+                            ].includes(logo.image) ? 'bg-black' : ''">
+                            <img class="h-24 w-auto object-contain" x-bind:src="logo.image">
                         </div>
                     </div>
                 </template>
@@ -88,10 +75,9 @@ description:
 <div id="what-we-do" class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 py-24">
     <div class="lg:px-20 lg:py-32 flex items-center justify-center">
         <div>
-            <h2 class="text-5xl mb-6 font-bold uppercase italic">What we do</h2>
+            <h2 class="text-5xl mb-6 font-bold uppercase italic">{{ home.about_title }}</h2>
             <div class="text-lg prose">
-                <p>Classes specifically tailored to take your audition execution to the next level for those that are ready to graft like never before.</p>
-                <p>Lead by industry and audition experts these classes are designed to equip those considering auditioning for Drama School, with the tools and skills to confidently showcase their abilities in what can be a highly pressurised environment.</p>
+                {{ home.about_description | markdown | safe }}
                 <a href="/apply/" class="mt-6 inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Apply Now</a>
             </div>
         </div>
@@ -99,112 +85,84 @@ description:
     <div class="h-96 md:h-auto pt-12 md:pt-0 ml-12 md:ml-0 grid relative grid-cols-2">
         <div class="pt-24">
             <div class="relative w-full h-full">
-                <img src="/images/Grafters-100.jpg" class="absolute inset-0 w-full h-full object-cover -mt-6 z-10">
+                <img src="{{ home.about_image_one }}" class="absolute inset-0 w-full h-full object-cover -mt-6 z-10">
             </div>
         </div>
         <div class="relative">
-            <img src="/images/Grafters-083.jpg" class="absolute inset-0 w-full h-full object-cover opacity-75 -ml-12">
+            <img src="{{ home.about_image_two }}" class="absolute inset-0 w-full h-full object-cover opacity-75 -ml-12">
         </div>
     </div>
 </div>
 
 <div class="">
     <video class="max-w-4xl w-full aspect-video mx-auto bg-black" poster="/images/video-preview.png" controls autoplay muted>
-        <source src="/images/grafters-ap-video.mp4" type="video/mp4">
+        <source src="{{ home.video }}" type="video/mp4">
     </video>
 </div>
 
 <div class="flex justify-center items-center px-6 gap-x-12 mt-12 md:mt-24">
-    <a href="https://www.instagram.com/graftersauditionpreparation/" class="flex justify-center items-center gap-1 hover:opacity-75">
+    <a href="{{ home.instagram_url }}" class="flex justify-center items-center gap-1 hover:opacity-75">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        <span>@graftersauditionpreparation</span>
+        <span>{{ home.instagram_username }}</span>
     </a>
-    <a href="https://www.facebook.com/profile.php?id=100087136584504" class="flex justify-center items-center gap-1 hover:opacity-75">
+    <a href="{{ home.facebook_url }}" class="flex justify-center items-center gap-1 hover:opacity-75">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        <span>Grafters Audition Preparation</span>
+        <span>{{ home.facebook_username }}</span>
     </a>
 </div>
 
 <div id="who-we-are" class="relative w-full bg-black py-56 my-12 lg:my-24">
     <div class="relative z-10 text-center text-white text-center mx-auto max-w-xl">
-        <h1 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">Who are we?</h1>
+        <h1 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">{{ home.team_title }}</h1>
         <!-- <a href="#" class="inline-block rounded-full border-2 border-white text-lg px-8 py-3 hover:bg-white hover:text-gray-900">Find out more</a> -->
     </div>
-    <img src="/images/Grafters-191.jpg" class="w-full h-full absolute inset-0 object-cover object-center opacity-75">
+    <img src="{{ home.team_image }}" class="w-full h-full absolute inset-0 object-cover object-center opacity-75">
 </div>
 
-<div class="container mx-auto px-6 flex flex-wrap py-24">
-    <div class="w-full md:w-4/12">
-        <img src="/images/PHOTO-2021-11-24-09-32-17.jpg" class="w-full h-full object-cover">
-    </div>
-    <div class="w-full md:w-8/12 lg:px-14 pt-12 md:pt-0">
-        <h2 class="text-5xl mb-6 font-bold uppercase italic">Elissa Hicken</h2>
-        <div class="prose max-w-none text-lg">
-            <p>Before relocating to the north Elissa was the Acting Head of Singing at the Guildford School of Acting (GSA) and Audition leader for 6 years. Elissa is also an External Examiner for Drama Schools across the UK and has taught globally within the musical theatre and commercial sectors. </p>
-            <p>Elissa continues to work as a Vocal Coach to stars throughout the West End, TV and Film including work for Disney and Fox Entertainment and as a musical theatre specialist in conservatoires across the UK.</p>
-            <p>Having spent so much time auditioning tens of thousands of people for Drama School Elissa noted there was a real gap in training for the pre Drama School ages in the way of Musical Theatre expertise. She found students had usually been to dance schools, singing classes, acting classes or musical theatre classes but there was very little in the way of integrative training for the musical theatre artist which is why her Rotherham based school Encore Musical Theatre was born. </p>
-            <p>Now in parternership with Jourdan, Elissa is excited to solidify this unique training process for the 16+ aged student and help those aspiring performers to achieve their dreams.</p>
-            <a href="https://encoremusicaltheatre.co.uk" class="inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Visit Encore Musical Theatre</a>
+{% for member in home.staff %}
+    <div class="container mx-auto px-6 flex flex-wrap py-24">
+        <div class="w-full md:w-4/12 {% if loop.index % 2 === 0 %} md:order-last {% endif %}">
+            <img src="{{ member.image }}" class="w-full h-full object-cover">
+        </div>
+        <div class="w-full md:w-8/12 lg:px-14 pt-12 md:pt-0">
+            <h2 class="text-5xl mb-6 font-bold uppercase italic">{{ member.name }}</h2>
+            <div class="prose max-w-none text-lg">
+                {{ member.about | markdown | safe }}
+                <a href="{{ member.website_link }}" class="inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">{{ member.website_name }}</a>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="container mx-auto px-6 flex flex-wrap py-24">
-    <div class="w-full md:w-4/12 md:order-last">
-        <img src="/images/WhatsApp Image 2022-12-16 at 9.54.14 PM.jpeg" class="w-full h-full object-cover">
-    </div>
-    <div class="w-full md:w-8/12 lg:px-14 pt-12 md:pt-0">
-        <h2 class="text-5xl mb-6 font-bold uppercase italic">Jourdan Storey</h2>
-        <div class="prose max-w-none text-lg">
-            <p>Originally from Sheffield, Jourdan trained at Performance Preparation Academy in Guildford Surrey. </p>
-            <p>Since graduating in Musical Theatre and performing around in both the UK and abroad, Jourdan is now pursuing her passion in acting for TV and Film. Jourdan’s screen projects have made their premiere debuts at the Beverly Hills Film Festival (worlds famous Chinese theatre), Cannes Film Festival and Leicester Square in London. Jourdan is still auditioning as well as building the events company Northern Prep Squad. Jourdan  also founded the child’s talent agency, Management by Northern Prep Squad where she is the head agent representing young people from all over the UK within Theatre, Film & TV. </p>
-            <p>She is extremely passionate about northern talent especially when it comes to confidence and mindset surrounding auditions and she is excited to be partnering with Elissa to graft . Jourdan is currently represented by YOU Management LTD.</p>
-            <a href="https://northernprepsquad.uk" class="inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Visit Northern Prep Squad</a>
-        </div>
-    </div>
-</div>
+{% endfor %}
 
 <div id="classes" class="relative w-full bg-black py-32 my-12 lg:my-24">
     <div class="relative z-10 text-center text-white text-center mx-auto max-w-xl">
-        <h2 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">Classes</h2>
+        <h2 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">{{ home.classes_title }}</h2>
         <!-- <a href="#" class="inline-block rounded-full border-2 border-white text-lg px-8 py-3 hover:bg-white hover:text-gray-900">Find out more</a> -->
     </div>
-    <img src="/images/Grafters-086.jpg" class="w-full h-full absolute inset-0 object-cover object-center opacity-75">
+    <img src="{{ home.classes_image }}" class="w-full h-full absolute inset-0 object-cover object-center opacity-75">
 </div>
 
 
 <div class="text-lg prose max-w-4xl mx-auto px-6 md:columns-2">
-    <p>In our Audition Preparation classes you will experience training in all disciplines. You will learn about yourself and how best to use your skills to help you stand out across the board no matter your background. You will be educated in ways to use your individuality to your advantage. We will help you to understand what the panel are really looking for in each skill and what to expect for the varying formats of auditions. You will learn where to invest your focus for your own unique development and how to manage audition nerves and anxiety. </p>
-    <p>In the discipline of dance you will not only experience a mix in audition style dance calls but also benefit from the training within this context to help take your skills to the next level. We will help you improve pick up speed, style, strength and flexibility and how to make your body work for you.</p>
-    <p>In singing you will learn how to choose the right songs for your voice, the way to use your voice to showcase yourself in the best way and how to effectively integrate acting into song. You will learn how nervous energy can affect the voice and how to use it to your advantage as well as fundamental techniques to enhance your vocal facility.</p>
-    <p>In acting you will learn how to be present in the space, how to think on your feet and how to make sure your performance highlights your versatility as an actor. We will help you unlock your text and your voice and make the decisions important to improve authenticity and truth as the actor.</p>
+    {{ home.classes_description | markdown | safe }}
 </div>
 <div class="text-center mt-12">
     <a href="/apply/" class="mt-8 inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Apply Now</a>
 </div>
 <div class="prose mx-auto px-6 text-center text-lg mt-12">
-    <p>Classes will be held in South Yorkshire on Wednesdays 6-8pm with the 4th Wednesday of each month finishing at 9pm</p>
+    <p>{{ home.classes_smallprint }}</p>
 </div>
-
 
 <div id="classes" class="relative w-full bg-black py-32 my-12 lg:my-24">
     <div class="relative z-10 text-center text-white text-center mx-auto max-w-xl">
-        <h2 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">Apply Now</h2>
+        <h2 class="text-3xl lg:text-7xl mb-4 font-bold uppercase italic">{{ home.apply_title }}</h2>
         <!-- <a href="#" class="inline-block rounded-full border-2 border-white text-lg px-8 py-3 hover:bg-white hover:text-gray-900">Find out more</a> -->
     </div>
-    <img src="/images/Grafters-083.jpg" class="w-full h-full absolute inset-0 object-cover object-center opacity-75">
+    <img src="{{ home.apply_image }}" class="w-full h-full absolute inset-0 object-cover object-center opacity-75">
 </div>
 
 <div class="prose max-w-4xl mx-auto px-6">
-    <p>Participation in these classes is dependant on successful application. If you would like to apply please click the button below. You will also be required to send over 2 of the following:</p>
-    <ul>
-        <li>90 second clip of why you would like to join Grafters and your goals for the future.</li>
-        <li>90 second clip of a Musical Theatre song.</li>
-        <li>90 second acting clip (Monologue or Scene).</li>
-        <li>90 second solo dance performance.</li>
-    </ul>
-    <p>All video submissions must be labelled with the Performers name and discipline eg: (James Smith - Dance) and sent via WeTransfer or Youtube link to info@grafterap.co.uk</p>
-    <p>We look forward to receiving your application and welcoming those successful to Grafters. Please ensure these are submitted no later than the 25th of January 2023 ready for our February class commencement.</p>
+    {{ home.apply_description  | markdown | safe }}
 </div>
 <div class="text-center mt-12">
     <a href="/apply/" class="mt-8 inline-block rounded-full border-2 border-gray-900 text-lg px-8 py-3 hover:bg-black hover:text-white no-underline">Apply Now</a>
