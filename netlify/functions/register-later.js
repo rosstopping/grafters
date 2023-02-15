@@ -16,7 +16,7 @@ exports.handler = async (event) => {
         mode: 'payment',
         line_items: [
             // {price: 'price_1KFLLpDVeVaT9qPlDiIsYAIy', quantity: 1}, // dev
-            {price: 'price_1LayEvDVeVaT9qPltsbocGOY', quantity: 1}, // live
+            {price: 'price_1MbgmxDUZ0lQyLConOT2zmDK', quantity: 1}, // live
         ],
         customer_email: event.queryStringParameters.email,
         payment_intent_data: {
