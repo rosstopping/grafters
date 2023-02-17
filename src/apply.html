@@ -23,6 +23,17 @@ title: Apply Now | Grafters Audition Preparation
     <div class="container mx-auto px-6 pb-12 md:pb-24">
         <form netlify action="/apply-success" name="Apply" class="space-y-6 max-w-lg mx-auto">
             <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Reason for application</label>
+                <div class="mt-1">
+                    <select required name="subject" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md">
+                        <option selected>Book workshop/audition place 16/04/23</option>
+                        <option>Requesting more information</option>
+                        <option>Applying online</option>
+                    </select>
+                </div>
+                <!-- <p class="mt-2 text-xs text-gray-500" id="name-description">(Parent/Guardian/Fee Payer)</p> -->
+            </div>
+            <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Full name</label>
                 <div class="mt-1">
                     <input x-model="data.name" type="text" name="name" id="name" class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md" placeholder="" aria-describedby="name-description">

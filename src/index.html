@@ -31,10 +31,10 @@ description:
 
 <div class="relative w-full py-12 px-12 bg-gray-50">
     <div class="relative z-10 text-center py-12 md:py-24">
-        <h2 class="text-5xl mb-6 font-bold uppercase italic">Register now...</h2>
-        <p class="text-gray-900 text-sm mb-4 font-semibold">22nd - 26th August 2022</p>
-        <p class="mb-10 text-base md:text-lg font-bold max-w-lg mx-auto">West End style summer workshops available. To register: simply click the link below and we will send your confirmation to you. But hurry, spaces are limited.</p>
-        <a href="/summer-workshop/" class="inline-block bg-black text-white uppercase text-sm tracking-widest font-heading px-8 py-4">Register Now</a>
+        <h2 class="text-5xl mb-6 font-bold uppercase italic">{{ home.announcement_title }}</h2>
+        <p class="text-gray-900 text-sm mb-4 font-semibold">{{ home.announcement_subtitle }}</p>
+        <p class="mb-10 text-base md:text-lg font-bold max-w-lg mx-auto">{{ home.announcement_description }}</p>
+        <a href="{{ home.announcement_link }}" class="inline-block bg-black text-white uppercase text-sm tracking-widest font-heading px-8 py-4">{{ home.announcement_button }}</a>
     </div>
 </div>
 

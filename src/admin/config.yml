@@ -31,7 +31,11 @@ collections:
         name: "home"
         file: "src/_data/home.yaml"
         fields:
-          - { label: Logos Title, name: logos_title, widget: string }
+          - { label: Announcement Title, name: announcement_title, widget: string }
+          - { label: Announcement Subtitle, name: announcement_subtitle, widget: string }
+          - { label: Announcement Description, name: announcement_description, widget: string }
+          - { label: Announcement Link, name: announcement_link, widget: string }
+          - { label: Announcement Button, name: announcement_button, widget: string }
           - label: Logos
             name: logos
             widget: list
