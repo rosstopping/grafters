@@ -1,9 +1,8 @@
-announcement_title: Audition Open Day
-announcement_subtitle: 16th April 2023
-announcement_description: To register simply click the link below and we will send your confirmation to you. But hurry, spaces are limited.
+announcement_title: CLASSES OPEN
+announcement_subtitle: September 2023
+announcement_description: To register your interest click the link below and we
+  will send your confirmation to you.
 announcement_link: /apply/
-announcement_button: Regsiter now
-logos_title: Student successes
 logos:
   - image: /images/logos/1616492948-ppa logo.png
   - image: /images/logos/ArtsEd_RGB-02-ORANGE.png
@@ -18,27 +17,6 @@ logos:
   - image: /images/logos/royal scottish .png
   - image: /images/logos/rwcmd-logo.png
 about_title: What we do
-about_description: >-
-  Classes specifically tailored to take your audition execution to the next
-  level for those that are ready to graft like never before. 
-
-
-  Lead by industry and audition experts these classes are designed to equip those considering auditioning for Drama School, with the tools and skills to confidently showcase their abilities in what can be a highly pressurised environment.
-
-
-  We aren’t just your run of the mill stage school, we are focused on YOU as individuals. We will be hear to advise on all aspects of auditioning and will help guide you from practise to audition day and beyond, all we need is for you to go all in with us and GRAFT! 
-
-
-  J﻿oin us on Sunday 16th April for our taster Workshop and in person application day where you will get to work with our team and see if you are ready to GRAFT!
-about_image_one: /images/Grafters-100.jpg
-about_image_two: /images/Grafters-083.jpg
-video: /images/grafters-ap-video.mp4
-instagram_url: https://www.instagram.com/graftersauditionpreparation/
-instagram_username: "@graftersauditionpreparation"
-facebook_url: https://www.facebook.com/profile.php?id=100087136584504
-facebook_username: Grafters Audition Preparation
-team_title: Who are we?
-team_image: /images/Grafters-191.jpg
 staff:
   - name: Elissa Hicken
     image: /images/PHOTO-2021-11-24-09-32-17.jpg
@@ -71,6 +49,29 @@ staff:
       She is extremely passionate about northern talent especially when it comes to confidence and mindset surrounding auditions and she is excited to be partnering with Elissa to graft . Jourdan is currently represented by YOU Management LTD.
     website_link: https://northernprepsquad.uk
     website_name: Visit Northern Prep Squad
+logos_title: Student successes
+announcement_button: Register Interest now
+about_description: >-
+  Classes specifically tailored to take your audition execution to the next
+  level for those that are ready to graft like never before. 
+
+
+  Lead by industry and audition experts these classes are designed to equip those considering auditioning for Drama School, with the tools and skills to confidently showcase their abilities in what can be a highly pressurised environment.
+
+
+  We aren’t just your run of the mill stage school, we are focused on YOU as individuals. We will be hear to advise on all aspects of auditioning and will help guide you from practise to audition day and beyond, all we need is for you to go all in with us and GRAFT! 
+
+
+  J﻿oin us on Sunday 16th April for our taster Workshop and in person application day where you will get to work with our team and see if you are ready to GRAFT!
+about_image_one: /images/Grafters-100.jpg
+about_image_two: /images/Grafters-083.jpg
+video: /images/grafters-ap-video.mp4
+instagram_url: https://www.instagram.com/graftersauditionpreparation/
+instagram_username: "@graftersauditionpreparation"
+facebook_url: https://www.facebook.com/profile.php?id=100087136584504
+facebook_username: Grafters Audition Preparation
+team_title: Who are we?
+team_image: /images/Grafters-191.jpg
 classes_title: Classes
 classes_image: /images/Grafters-086.jpg
 classes_description: >
