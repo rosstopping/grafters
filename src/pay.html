@@ -24,42 +24,95 @@ title: Register Now | Encore Musical Theatre
     <div class="container mx-auto px-6 pt-12 mb-24">
         <div class="space-y-6 max-w-lg mx-auto">
             <fieldset>
+
                 <legend class="text-base font-medium text-gray-900">
-                    Payment options
+                    Choose programme
                 </legend>
-                <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-                    <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
-                        <input x-model="payment_option" type="radio" name="payment_option" value="full" class="sr-only" aria-labelledby="project-type-0-label" aria-describedby="project-type-0-description-0 project-type-0-description-1">
-                        <div class="flex-1 flex">
-                            <div class="flex flex-col">
-                                <span id="project-type-0-label" class="block text-sm font-medium text-gray-900">
-                                    Pay in full
-                                </span>
-                                <span id="project-type-0-description-0" class="mt-1 flex items-center text-sm text-gray-500">£400</span>
-                            </div>
-                        </div>
-                        <svg x-bind:class="payment_option != 'full' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
-                        <div x-bind:class="payment_option != 'full' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
-                    </label>
-                    <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
-                        <input x-model="payment_option" type="radio" name="payment_option" value="later" class="sr-only" aria-labelledby="project-type-2-label" aria-describedby="project-type-2-description-0 project-type-2-description-1">
-                        <div class="flex-1 flex">
-                            <div class="flex flex-col">
-                                <span id="project-type-2-label" class="block text-sm font-medium text-gray-900">
-                                    Instalments
-                                </span>
-                                <span id="project-type-2-description-0" class="mt-1 flex items-center text-sm text-gray-500">£133.33 x 3 monthly payments</span>
-                            </div>
-                        </div>
-                        <svg x-bind:class="payment_option != 'later' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                        </svg>
-                        <div x-bind:class="payment_option != 'later' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
-                    </label>
-                </div>
+                <div class="mt-1">
+                    <select x-model.number="plan" name="source" required class="shadow-sm focus:ring-brand focus:border-brand block w-full sm:text-sm border-gray-300 rounded-md">
+                        <option value="8">8 weeks</option>
+                        <option value="12">12 weeks</option>
+                    </select>
+                </div>  
             </fieldset>
+            <template x-if="plan === 8">
+                <fieldset>
+                    <legend class="text-base font-medium text-gray-900">
+                        Payment options
+                    </legend>
+                    <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+                        <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                            <input x-model="payment_option" type="radio" name="payment_option" value="full" class="sr-only" aria-labelledby="project-type-0-label" aria-describedby="project-type-0-description-0 project-type-0-description-1">
+                            <div class="flex-1 flex">
+                                <div class="flex flex-col">
+                                    <span id="project-type-0-label" class="block text-sm font-medium text-gray-900">
+                                        Pay in full
+                                    </span>
+                                    <span id="project-type-0-description-0" class="mt-1 flex items-center text-sm text-gray-500">£272</span>
+                                </div>
+                            </div>
+                            <svg x-bind:class="payment_option != 'full' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <div x-bind:class="payment_option != 'full' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                        </label>
+                        <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                            <input x-model="payment_option" type="radio" name="payment_option" value="later" class="sr-only" aria-labelledby="project-type-2-label" aria-describedby="project-type-2-description-0 project-type-2-description-1">
+                            <div class="flex-1 flex">
+                                <div class="flex flex-col">
+                                    <span id="project-type-2-label" class="block text-sm font-medium text-gray-900">
+                                        Instalments
+                                    </span>
+                                    <span id="project-type-2-description-0" class="mt-1 flex items-center text-sm text-gray-500">£90.67 x 3 monthly payments</span>
+                                </div>
+                            </div>
+                            <svg x-bind:class="payment_option != 'later' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <div x-bind:class="payment_option != 'later' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                        </label>
+                    </div>
+                </fieldset>
+            </template>
+            <template x-if="plan === 12">
+                <fieldset>
+                    <legend class="text-base font-medium text-gray-900">
+                        Payment options
+                    </legend>
+                    <div class="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
+                        <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                            <input x-model="payment_option" type="radio" name="payment_option" value="full" class="sr-only" aria-labelledby="project-type-0-label" aria-describedby="project-type-0-description-0 project-type-0-description-1">
+                            <div class="flex-1 flex">
+                                <div class="flex flex-col">
+                                    <span id="project-type-0-label" class="block text-sm font-medium text-gray-900">
+                                        Pay in full
+                                    </span>
+                                    <span id="project-type-0-description-0" class="mt-1 flex items-center text-sm text-gray-500">£400</span>
+                                </div>
+                            </div>
+                            <svg x-bind:class="payment_option != 'full' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <div x-bind:class="payment_option != 'full' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                        </label>
+                        <label class="relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none">
+                            <input x-model="payment_option" type="radio" name="payment_option" value="later" class="sr-only" aria-labelledby="project-type-2-label" aria-describedby="project-type-2-description-0 project-type-2-description-1">
+                            <div class="flex-1 flex">
+                                <div class="flex flex-col">
+                                    <span id="project-type-2-label" class="block text-sm font-medium text-gray-900">
+                                        Instalments
+                                    </span>
+                                    <span id="project-type-2-description-0" class="mt-1 flex items-center text-sm text-gray-500">£133.33 x 3 monthly payments</span>
+                                </div>
+                            </div>
+                            <svg x-bind:class="payment_option != 'later' ? 'invisible' : ''" class="h-5 w-5 text-brand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <div x-bind:class="payment_option != 'later' ? 'border border-transparent' : 'border border-brand'" class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
+                        </label>
+                    </div>
+                </fieldset>
+            </template>
             <div class="relative flex items-start">
                 <div class="flex items-center h-5">
                     <input x-model="terms" id="comments" aria-describedby="comments-description" name="comments" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
@@ -87,6 +140,7 @@ title: Register Now | Encore Musical Theatre
 const data = () => ({
     loading: false,
     payment_option: 'full',
+    plan: 12,
     terms: false,
     data: JSON.parse(localStorage.getItem('data')),
     init() {
@@ -112,6 +166,10 @@ const data = () => ({
         this.loading = true;
 
         let payment_url = this.payment_option === 'full' ? '/.netlify/functions/register-now' : '/.netlify/functions/register-later';
+
+        if (this.plan === 8) {
+            payment_url = this.payment_option === 'full' ? '/.netlify/functions/register-now-8weeks' : '/.netlify/functions/register-later-8weeks';
+        }
 
         axios.get(payment_url, {
                 params: this.data
