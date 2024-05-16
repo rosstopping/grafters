@@ -42,3 +42,5 @@ Thumbs.db
 *.app
 *.exe
 *.war
+# Local Netlify folder
+.netlify
