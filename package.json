@@ -4,7 +4,7 @@
 		"build": "NODE_ENV=production TAILWIND_MODE=build npx tailwindcss -i ./src/dev.css -o ./_site/app.css | npx @11ty/eleventy"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^1.0.1",
+		"@11ty/eleventy": "^3.1.8",
 		"@tailwindcss/aspect-ratio": "^0.4.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.4",
